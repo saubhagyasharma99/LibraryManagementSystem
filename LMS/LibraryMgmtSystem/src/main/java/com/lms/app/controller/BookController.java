@@ -54,6 +54,7 @@ public class BookController {
 	  // save new book
 	  @PostMapping("/books")
 	  Book newBook(@RequestBody Book newBook) {
+		newBook.setStatus("AVAILABLE");
 	    return bookService.saveBook(newBook);
 	  }
 
@@ -83,8 +84,8 @@ public class BookController {
 	      
 	  }
 
-	  @DeleteMapping("/employees/{id}")
-	  void deleteEmployee(@PathVariable Long id) {
+	  @DeleteMapping("/books/{id}")
+	  void deleteBook(@PathVariable Long id) {
 	    bookService.deleteBookById(id);
 	  }
 }
